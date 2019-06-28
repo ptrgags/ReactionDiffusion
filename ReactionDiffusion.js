@@ -3,7 +3,7 @@ var curr_A = [];
 var prev_B = [];
 var curr_B = [];
 
-var FEED_RATE = 0.0545;
+var FEED_RATE = 0.054;
 var KILL_RATE = 0.062;
 var DIFFUSION_A = 1.0;
 var DIFFUSION_B = 0.5;
@@ -78,7 +78,6 @@ function laplacian(grid, row, col) {
 
 function reaction_diffusion_step(row, col) {
   
-  
   // Diffusion Term
   var diffusion_A = DIFFUSION_A * laplacian(prev_A, row, col);
   var diffusion_B = DIFFUSION_B * laplacian(prev_B, row, col);
@@ -125,7 +124,7 @@ function display() {
        pixels[index] = red(col);
        pixels[index + 1] = green(col);
        pixels[index + 2] = blue(col);
-       pixels[index + 3] = alpha(col);
+       pixels[index + 3] = 255;
     }
   }
   updatePixels();
